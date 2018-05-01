@@ -6,7 +6,7 @@ const client = new Discord.Client();
 const file = 'guildsdata.json'
 var commandPrefix = "";
 var commands = [];
-commands.push("info").desc = "Affiche des informations sur le serveur."
+commands.push("info").desc = "Affiche des informations sur le serveur.";
 function globalVar()
 {
     this.__enabled = true;    
@@ -17,7 +17,6 @@ client.on('ready', () => {
     console.log('Bot got ready , join now discord!')
 });
 client.on('message', message => {
-	if (message.author.muted == true) {return;}
     if (message.channel.name === "commandes-bot") {
 	const args = message.content.slice(commandPrefix.length).trim().split(/ +/g);
    	const command = args.shift().toLowerCase();
@@ -29,7 +28,7 @@ client.on('message', message => {
 		}
 	} else if ((command === "info") || (command === "informations"))
 		message.channel.send("Le serveur **" + message.guild.info + "** contient **" + message.guild.members.size + "** membres .")	
-    	}
+    	
     }
 });
 // THIS  MUST  BE  THIS  WAY
