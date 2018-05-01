@@ -22,6 +22,7 @@ client.on('message', message => {
 	if (command === "salut"){
 		message.channel.send("Salut! Cava ? <@"+message.author.id+">");	
 	}
+    }
 });
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
