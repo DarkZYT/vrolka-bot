@@ -12,8 +12,7 @@ function globalVar()
 client.on('message', msg => {
     message = msg.content.trim();
 	if (msg.channel.name !== "commandes-musique") {return;}
-	if ((msg.guild.commandPrefix == null)) {msg.guild.commandPrefix = "_"};
-    if (message.toLowerCase().startsWith(msg.guild.commandPrefix.toLowerCase())) {
+    if (msg.author.name != null) {
       const command = message.substring(msg.guild.commandPrefix.length).split(/[ \n]/)[0].toLowerCase().trim();
       const suffix = message.substring(msg.guild.commandPrefix.length + command.length).trim();
 
