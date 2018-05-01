@@ -33,10 +33,15 @@ client.on('message', message => {
 		message.channel.send("Le serveur discord **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")
 	} else if (command === "status"){
 		message.channel.send("https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565")
-		$.get("https://use.gameapis.net/mc/query/players/VrolkaNetwork.lcmc.pro:25565", function(response) { 
-			    var result = response
-			    //do you operations
-			});
+		var url ="1.html";
+		$.ajax({
+		  url: url,
+		  dataType: 'html'
+		  success: function(data){
+			     var response = data;
+			   }
+
+		})
 		var k = JSON.parse(response);
 		message.send(k.players.online + "/" + k.players.max)
 	}
