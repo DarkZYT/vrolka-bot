@@ -3,7 +3,7 @@ const client = new Discord.Client();
 //const YoutubeDL = require('youtube-dl');
 //const ytdl = require('ytdl-core');
 //const jsonf = require('json-file');
-require("node-jsdom").env("", function(err, window) {
+require("jsdom").env("", function(err, window) {
     if (err) {
         console.error(err);
         return;
