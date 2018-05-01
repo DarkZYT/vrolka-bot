@@ -33,11 +33,10 @@ client.on('message', message => {
 	} else if (command === "status"){
 		message.channel.send("**Status du serveur :**")
 		message.channel.send({
-		  embed: {
-		    thumbnail: {
-			 url: 'https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565'
-		      }
-		   }
+		  files: [{
+		      attachment: 'https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565',
+		      name: 'banner.jpg'
+		   }]
 		})
 		  .then(console.log)
 		  .catch(console.error);
