@@ -7,7 +7,7 @@ const file = 'guildsdata.json'
 var commandPrefix = "";
 var commands = [];
 var k = commands.push("info");
-commands[k-1].desc = "Affiche des informations sur le serveur.";
+commands[k].desc = "Affiche des informations sur le serveur.";
 function globalVar()
 {
     this.__enabled = true;    
