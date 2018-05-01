@@ -6,8 +6,7 @@ const client = new Discord.Client();
 const file = 'guildsdata.json'
 var commandPrefix = "";
 var commands = [];
-var k = commands.push("info");
-commands[k].desc = "Affiche des informations sur le serveur.";
+commands[commands.push("info")-1].desc = "Affiche des informations sur le serveur.";
 function globalVar()
 {
     this.__enabled = true;    
