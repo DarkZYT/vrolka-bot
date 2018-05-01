@@ -31,7 +31,11 @@ client.on('message', message => {
 	} else if ((command === "info") || (command === "informations")) {
 		message.channel.send("Le serveur discord **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")
 	} else if (command === "status"){
-		message.channel.send("https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565")
+		message.channel.send({
+		  files: ['https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565']
+		})
+		  .then(console.log)
+		  .catch(console.error);
 	}
     	
     }
