@@ -4,7 +4,8 @@ const client = new Discord.Client();
 //const ytdl = require('ytdl-core');
 //const jsonf = require('json-file');
 const file = 'guildsdata.json'
-var commandPrefix = "_";
+var commandPrefix = "";
+var commands = [];
 function globalVar()
 {
     this.__enabled = true;    
@@ -16,12 +17,15 @@ client.on('ready', () => {
 });
 client.on('message', message => {
 	if (message.author.muted == true) {return;}
-	message.guild.commandPrefix = "";
     if (message.channel.name === "commandes-bot") {
-	const args = message.content.slice(message.guild.commandPrefix.length).trim().split(/ +/g);
+	const args = message.content.slice(commandPrefix.length).trim().split(/ +/g);
    	const command = args.shift().toLowerCase();
-	if (command === "salut"){
-		message.channel.send("Salut! Cava ? <@"+message.author.id+">");	
+	if (command === "aide"){
+		message.channel.send("```Commandes Bot:```")
+		for(i = 0;i < commands.length;i++)
+		{
+			message.channel.send("**" +command[i]+ "** : " + command[i].desc);
+		}
 	}
     }
 });
