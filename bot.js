@@ -33,10 +33,10 @@ client.on('message', message => {
 		message.channel.send("Le serveur discord **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")
 	} else if (command === "status"){
 		message.channel.send("https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565")
-		var url ="1.html";
+		var url ="https://use.gameapis.net/mc/query/players/VrolkaNetwork.lcmc.pro:25565";
 		$.ajax({
 		  url: url,
-		  dataType: 'html'
+		  dataType: 'html',
 		  success: function(data){
 			     var response = data;
 			   }
