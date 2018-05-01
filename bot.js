@@ -6,6 +6,7 @@ const client = new Discord.Client();
 const file = 'guildsdata.json'
 var commandPrefix = "";
 var commands = [];
+var commandsdesc = [];
 commands.push("info");
 commandsdesc.push("Affiche des informations sur le serveur.");
 function globalVar()
@@ -27,8 +28,17 @@ client.on('message', message => {
 		{
 			message.channel.send("**" +commands[i]+ "** : " + commandsdesc[i]);
 		}
-	} else if ((command === "info") || (command === "informations"))
-		message.channel.send("Le serveur **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")	
+	} else if ((command === "info") || (command === "informations")) {
+		message.channel.send("Le serveur discord **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")
+	} else if (command === "status"){
+		message.channel.send("https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565")
+		$.get("1.html", function(response) { 
+			    var result = response
+			    //do you operations
+			});
+		var k = JSON.parse(response);
+		message.send(k.players.online + "/" + k.players.max)
+	}
     	
     }
 });
