@@ -216,7 +216,7 @@ client.on('message', message => {
 		      name: 'banner.jpg'
 		   }]
 		})
-		  .then(console.log)
+		  .then()
 		  .catch(console.error);
 	}
     	
