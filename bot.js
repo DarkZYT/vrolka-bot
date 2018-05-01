@@ -3,11 +3,6 @@ const client = new Discord.Client();
 //const YoutubeDL = require('youtube-dl');
 //const ytdl = require('ytdl-core');
 //const jsonf = require('json-file');
-require("jsdom").env("", function(err, window) {
-    if (err) {
-        console.error(err);
-        return;
-    }
 
     const $ = require("jquery")(window);
 });
@@ -40,17 +35,6 @@ client.on('message', message => {
 		message.channel.send("Le serveur discord **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")
 	} else if (command === "status"){
 		message.channel.send("https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565")
-		var url ="https://use.gameapis.net/mc/query/players/VrolkaNetwork.lcmc.pro:25565";
-		$.ajax({
-		  url: url,
-		  dataType: 'html',
-		  success: function(data){
-			     var response = data;
-			   }
-
-		})
-		var k = JSON.parse(response);
-		message.send(k.players.online + "/" + k.players.max)
 	}
     	
     }
