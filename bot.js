@@ -6,7 +6,8 @@ const client = new Discord.Client();
 const file = 'guildsdata.json'
 var commandPrefix = "";
 var commands = [];
-commands[commands.push("info")-1].desc = "Affiche des informations sur le serveur.";
+commands.push("info");
+commandsdesc.push("Affiche des informations sur le serveur.");
 function globalVar()
 {
     this.__enabled = true;    
@@ -24,7 +25,7 @@ client.on('message', message => {
 		message.channel.send("```Commandes Bot:```")
 		for(i = 0;i < commands.length;i++)
 		{
-			message.channel.send("**" +commands[i]+ "** : " + commands[i].desc);
+			message.channel.send("**" +commands[i]+ "** : " + commandsdesc[i]);
 		}
 	} else if ((command === "info") || (command === "informations"))
 		message.channel.send("Le serveur **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")	
