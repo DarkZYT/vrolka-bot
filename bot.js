@@ -16,6 +16,7 @@ client.on('ready', () => {
 });
 client.on('message', message => {
 	if (message.author.muted == true) {return;}
+	message.guild.commandPrefix = "";
     if (message.channel.name === "commandes-bot") {
 	const args = message.content.slice(message.guild.commandPrefix.length).trim().split(/ +/g);
    	const command = args.shift().toLowerCase();
