@@ -3,7 +3,14 @@ const client = new Discord.Client();
 //const YoutubeDL = require('youtube-dl');
 //const ytdl = require('ytdl-core');
 //const jsonf = require('json-file');
-const $ = require('jquery');
+require("node-jsdom").env("", function(err, window) {
+    if (err) {
+        console.error(err);
+        return;
+    }
+
+    const $ = require("jquery")(window);
+});
 const file = 'guildsdata.json'
 var commandPrefix = "";
 var commands = [];
