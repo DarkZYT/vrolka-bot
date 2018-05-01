@@ -26,7 +26,9 @@ client.on('message', message => {
 		{
 			message.channel.send("**" +command[i]+ "** : " + command[i].desc);
 		}
-	}
+	} else if ((command === "info") || (command === "informations"))
+		message.channel.send("Le serveur **" + message.guild.info + "** contient **" + message.guild.members.size + "** membres .")	
+    	}
     }
 });
 // THIS  MUST  BE  THIS  WAY
