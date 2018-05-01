@@ -13,8 +13,8 @@ client.on('message', msg => {
     message = msg.content.trim();
 	if (msg.channel.name !== "commandes-musique") {return;}
 
-      const command = message.substring(msg.guild.commandPrefix.length).split(/[ \n]/)[0].toLowerCase().trim();
-      const suffix = message.substring(msg.guild.commandPrefix.length + command.length).trim();
+      const command = message.substring(commandPrefix.length).split(/[ \n]/)[0].toLowerCase().trim();
+      const suffix = message.substring(commandPrefix.length + command.length).trim();
 
       switch (command) {
         case 'play':
