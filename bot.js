@@ -58,7 +58,7 @@ client.on('message', msg => {
 			msg.channel.send("**" +commands[i]+ "** : " + commandsdesc[i]);
 		}
 	}
-	case 'skip'
+	case 'skip':
 	{
 		  skipCurrentSong(msg)
       	}
