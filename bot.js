@@ -8,6 +8,18 @@ function globalVar()
 {
     this.__enabled = true;    
 }
+var commands = [];
+var commandsdesc = [];
+commands.push("play");
+commandsdesc.push("Joue un clip musical : *play/queue <lien/nom>*");
+commands.push("stop");
+commandsdesc.push("Arrêt du jeu de musique: *stop/leave*");
+commands.push("showqueue");
+commandsdesc.push("Affiche la liste des clips ajoutés a la queue : *showqueue*");
+commands.push("join");
+commandsdesc.push("Rejoin votre salon actuel : *join*");
+commands.push("skip");
+commandsdesc.push("Skip le clip actuel : *skip*");
 client.on('message', msg => {
     message = msg.content.trim();
 	if (msg.channel.name !== "commandes-musique") {return;}
@@ -28,17 +40,28 @@ client.on('message', msg => {
 	}
 	case 'stop':
 	{
-			stopQueue(msg)
+		stopQueue(msg);
 	}
 	case 'join':
 	{
-			joinChannel(msg)
+		joinChannel(msg);
 	}
 	case 'showqueue':
 	{
-			showQueue(msg)
-	}	
-		   
+		showQueue(msg);
+	}
+	case 'aide':
+	{
+		msg.channel.send("```Commandes Musique:```");
+		for(i = 0;i < commands.length;i++)
+		{
+			msg.channel.send("**" +commands[i]+ "** : " + commandsdesc[i]);
+		}
+	}
+	case 'skip'
+	{
+		  skipCurrentSong(msg)
+      	}
       }
 
 
@@ -177,46 +200,11 @@ client.on('ready', () => {
     console.log('Bot got ready , join now discord!')
 });
 
-var commands = [];
-var commandsdesc = [];
-commands.push("info");
-commandsdesc.push("Affiche des informations sur le serveur Discord : *info/informations*");
-commands.push("status-joueur");
-commandsdesc.push("[Expérimental] Affiche des informations sur un joueur Minecraft : *status-joueur*");
-commands.push("status-serveur");
-commandsdesc.push("Affiche des informations sur le serveur Minecraft : *status*");
-commands.push("play");
-commandsdesc.push("Joue un clip musical : *play/queue <lien/nom>*");
-commands.push("stop");
-commandsdesc.push("Arrêt du jeu de musique: *stop/leave*");
-commands.push("showqueue");
-commandsdesc.push("Affiche la liste des clips ajoutés a la queue : *showqueue*");
-commands.push("join");
-commandsdesc.push("Rejoin votre salon actuel : *join*");
 
 client.on('message', message => {
-    if (message.channel.name === "commandes-bot") {
+    if (message.channel.name === "commandes-musique") {
 	const args = message.content.slice(commandPrefix.length).trim().split(/ +/g);
    	const command = args.shift().toLowerCase();
-	if (command === "aide"){
-		message.channel.send("```Commandes Bot:```")
-		for(i = 0;i < commands.length;i++)
-		{
-			message.channel.send("**" +commands[i]+ "** : " + commandsdesc[i]);
-		}
-	} else if ((command === "info") || (command === "informations")) {
-		message.channel.send("Le serveur discord **" + message.guild.name + "** contient **" + message.guild.members.size + "** membres .")
-	} else if (command === "status-serveur"){
-		message.channel.send("**Status du serveur :**")
-		message.channel.send({
-		  files: [{
-		      attachment: 'https://use.gameapis.net/mc/query/banner/VrolkaNetwork.lcmc.pro:25565',
-		      name: 'banner.jpg'
-		   }]
-		})
-		  .then()
-		  .catch(console.error);
-	}
     	
     }
 });
