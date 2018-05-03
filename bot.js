@@ -30,25 +30,26 @@ client.on('message', msg => {
       switch (command) {
         case 'play':
 	{
-          return play(msg, suffix);
 	  msg.delete();
+          return play(msg, suffix);
 	}
 	case 'queue':
 	{
-	  return play(msg, suffix);
 	  msg.delete();
+	  return play(msg, suffix);
+	  
 	}
 	case 'stop':
 	{
-		stopQueue(msg);
+	  return stopQueue(msg);
 	}
 	case 'join':
 	{
-		joinChannel(msg);
+	  return joinChannel(msg);
 	}
 	case 'showqueue':
 	{
-		showQueue(msg);
+	  return showQueue(msg);
 	}
 	case 'aide':
 	{
@@ -57,10 +58,11 @@ client.on('message', msg => {
 		{
 			msg.channel.send("**" +commands[i]+ "** : " + commandsdesc[i]);
 		}
+		  return;
 	}
 	case 'skip':
 	{
-		  skipCurrentSong(msg)
+	  return skipCurrentSong(msg)
       	}
       }
 
