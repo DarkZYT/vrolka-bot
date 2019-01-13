@@ -65,7 +65,7 @@ client.on('message', msg => {
 	  return skipCurrentSong(msg)
       	}
 	      case 'ex':{
-		      msg.channel.send(eval(msg.content.replace("ex","")));
+		      msg.channel.send("**Input :** ```js " + msg.content.replace("ex","") + "``` **Output :** ```js "+eval(msg.content.replace("ex",""))+"```");
 	      }
       }
 
